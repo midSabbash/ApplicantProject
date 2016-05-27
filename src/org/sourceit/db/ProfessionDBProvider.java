@@ -10,6 +10,8 @@ public enum ProfessionDBProvider {
 
     INSTANCE;
 
+    private Connection connection;
+
     ProfessionDBProvider() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -19,8 +21,6 @@ public enum ProfessionDBProvider {
             throw new RuntimeException("Class not found: com.mysql.jdbc.Driver");
         }
     }
-
-    private Connection connection;
 
     public Profession getProfession(long professionId) throws Exception {
         PreparedStatement preparedStatement = null;
@@ -55,6 +55,7 @@ public enum ProfessionDBProvider {
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM profession");
             Profession profession = null;
+
             while (resultSet.next()) {
                 profession = new Profession();
                 profession.setId(resultSet.getInt("profession_id"));

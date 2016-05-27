@@ -11,17 +11,17 @@
     <fieldset>
         <legend><c:out value="${title}"/></legend>
 
-        <form method="post" action="controller?command=saveProfession">
+        <form method="post" action="controller?command=saveSubject">
             <c:choose>
-                <c:when test="${profession ne null}">
-                    <span>Profession name</span>
-                    <input type="text" name="profession_name"
-                           value="${profession.getProfessionName()}"/><br/>
+                <c:when test="${subject ne null}">
+                    <span>Subject name</span>
+                    <input type="text" name="subject_name"
+                           value="${subject.getSubjectName()}"/><br/>
 
                 </c:when>
                 <c:otherwise>
-                    <span>Profession</span>
-                    <input type="text" name="profession_name"/><br/>
+                    <span>Subject</span>
+                    <input type="text" name="subject_name"/><br/>
 
                 </c:otherwise>
             </c:choose>

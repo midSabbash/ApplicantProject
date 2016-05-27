@@ -14,7 +14,7 @@ import java.util.List;
  * -- saveApplicant
  * -- deleteApplicant
  * <p>
- * TODO: And your task is add similar methods for Subject, SpecialitySubject, ApplicantResult
+ * TODO: And your task is add similar methods for subject, SpecialitySubjectDBProvider, ApplicantResult
  */
 public enum ApplicantDBProvider {
 
