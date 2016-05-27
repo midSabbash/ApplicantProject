@@ -2,7 +2,9 @@ package org.sourceit.db;
 
 
 
+import org.sourceit.entities.Profession;
 import org.sourceit.entities.SpecialitySubject;
+import org.sourceit.entities.Subject;
 
 import java.sql.*;
 
@@ -25,6 +27,9 @@ public enum SpecialitySubjectDBProvider {
     public SpecialitySubject getSpecialitySubject(long specialityId) throws Exception {
         PreparedStatement preparedStatement = null;
         SpecialitySubject specialitySubject = null;
+
+
+
         try {
             preparedStatement = connection.prepareStatement("SELECT * FROM speciality_subject WHERE sp_sb_id=?");
             preparedStatement.setInt(1, (int) specialityId);
@@ -32,8 +37,15 @@ public enum SpecialitySubjectDBProvider {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 specialitySubject = new SpecialitySubject();
+                Profession profession = new Profession();
+                Subject subject = new Subject();
+
                 specialitySubject.setId(resultSet.getInt("sp_sb_id"));
+                profession.setId(resultSet.getInt("profession_id"));
+                subject.setId(resultSet.getInt("subject_id"));
+
                 specialitySubject.setProfession(resultSet.getInt("profession_id"));
+
                 specialitySubject.setSubject(resultSet.getInt("subject_id"));
             }
         } catch (SQLException e) {
