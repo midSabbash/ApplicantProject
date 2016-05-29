@@ -4,10 +4,9 @@ import org.sourceit.command.ICommand;
 import org.sourceit.command.impl.applicant.*;
 import org.sourceit.command.impl.profession.*;
 import org.sourceit.command.impl.subject.*;
-//import org.sourceit.command.impl.applicantresult.*;
-//import org.sourceit.command.impl.profession.*;
+import org.sourceit.command.impl.applicantResult.*;
 import org.sourceit.command.impl.specialitysubject.*;
-//import org.sourceit.command.impl.subject.*;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -49,11 +48,11 @@ public enum Chooser {
         commandMap.put("editSpecSubject", new EditSpecialitySubjectsCommand());
 
         // commands for applicant results
-//        commandMap.put("applicantResults", new ApplicantResultCommand());
-//        commandMap.put("addApplicantResult", new AddApplicantResultCommand());
-//        commandMap.put("saveApplicantResult", new SaveApplicantResultCommand());
-//        commandMap.put("deleteApplicantResult", new DeleteApplicantResultCommand());
-//        commandMap.put("editApplicantResult", new EditApplicantResultCommand());
+        commandMap.put("applicantResults", new ApplicantResultCommand());
+        commandMap.put("addApplicantResult", new AddApplicantResultCommand());
+        commandMap.put("saveApplicantResult", new SaveApplicantResultCommand());
+        commandMap.put("deleteApplicantResult", new DeleteApplicantResultCommand());
+        commandMap.put("editApplicantResult", new EditApplicantResultCommand());
 
     }
 

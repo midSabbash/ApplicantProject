@@ -90,7 +90,7 @@ public enum SpecialitySubjectDBProvider {
 
         try {
             if (specialitySubject.getId() == -1) {
-                preparedStatement = connection.prepareStatement("INSERT INTO Speciality_Subject (profession_id," +
+                preparedStatement = connection.prepareStatement("INSERT INTO speciality_subject (profession_id," +
                         " subject_id) VALUES (?, ?) ");
 
                 preparedStatement.setLong(1, specialitySubject.getProfession().getId());
@@ -98,11 +98,12 @@ public enum SpecialitySubjectDBProvider {
 
 
             } else {
-                preparedStatement = connection.prepareStatement("UPDATE Speciality_Subject SET profession_id=?," +
+                preparedStatement = connection.prepareStatement("UPDATE speciality_subject SET profession_id=?," +
                         " subject_id=? WHERE sp_sb_id=?");
 
                 preparedStatement.setLong(1, specialitySubject.getProfession().getId());
                 preparedStatement.setLong(2, specialitySubject.getSubject().getId());
+                preparedStatement.setLong(3, specialitySubject.getId());
 
             }
             preparedStatement.executeUpdate();

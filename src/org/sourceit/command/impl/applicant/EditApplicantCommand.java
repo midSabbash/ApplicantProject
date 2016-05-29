@@ -3,8 +3,6 @@ package org.sourceit.command.impl.applicant;
 import org.sourceit.command.ICommand;
 import org.sourceit.db.ApplicantDBProvider;
 import org.sourceit.entities.Applicant;
-import org.sourceit.entities.Profession;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
