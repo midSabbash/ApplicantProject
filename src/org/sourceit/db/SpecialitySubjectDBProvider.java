@@ -7,6 +7,8 @@ import org.sourceit.entities.SpecialitySubject;
 import org.sourceit.entities.Subject;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public enum SpecialitySubjectDBProvider {
 
@@ -28,8 +30,6 @@ public enum SpecialitySubjectDBProvider {
         PreparedStatement preparedStatement = null;
         SpecialitySubject specialitySubject = null;
 
-
-
         try {
             preparedStatement = connection.prepareStatement("SELECT * FROM speciality_subject WHERE sp_sb_id=?");
             preparedStatement.setInt(1, (int) specialityId);
@@ -44,9 +44,6 @@ public enum SpecialitySubjectDBProvider {
                 profession.setId(resultSet.getInt("profession_id"));
                 subject.setId(resultSet.getInt("subject_id"));
 
-                specialitySubject.setProfession(resultSet.getInt("profession_id"));
-
-                specialitySubject.setSubject(resultSet.getInt("subject_id"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -57,6 +54,96 @@ public enum SpecialitySubjectDBProvider {
         }
 
         return specialitySubject;
+    }
+
+    public List<SpecialitySubject> getSpecialitySubjects() throws Exception {
+
+        Statement statement = null;
+        List<SpecialitySubject> specialitySubjects = new ArrayList<>();
+
+        try {
+            statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM speciality_subject");
+            SpecialitySubject specialitySubject = null;
+
+            while (resultSet.next()) {
+                specialitySubject = new SpecialitySubject();
+                Profession profession = new Profession();
+                Subject subject = new Subject();
+
+
+                specialitySubject.setId(resultSet.getInt("sp_sb_id"));
+                profession.setId(resultSet.getInt("profession_id"));
+                subject.setId(resultSet.getInt("subject_id"));
+                specialitySubject.setSubject(subject);
+                specialitySubject.setProfession(profession);
+                specialitySubjects.add(specialitySubject);
+            }
+        } catch (SQLException e) {
+            throw new Exception(e);
+        }
+
+        return specialitySubjects;
+    }
+
+    public void saveSpecialitySubject(SpecialitySubject specialitySubject) throws Exception {
+        PreparedStatement preparedStatement = null;
+
+        try {
+            if (specialitySubject.getId() == -1) {
+
+                Profession profession = new Profession();
+                Subject subject = new Subject();
+
+                preparedStatement = connection.prepareStatement("INSERT INTO Speciality_Subject (profession_id, subject_id) VALUES (?, ?) ");
+
+                System.out.println(specialitySubject.getProfession().getId()+ " " + specialitySubject.getSubject().getId());
+
+
+                preparedStatement.setLong(1, specialitySubject.getProfession().getId());
+                preparedStatement.setLong(2, specialitySubject.getSubject().getId());
+
+
+            } else {
+                preparedStatement = connection.prepareStatement("UPDATE Speciality_Subject SET profession_id=?, subject_id=? " +
+                        "WHERE SP_SB_ID=?");
+
+                Profession profession = new Profession();
+                Subject subject = new Subject();
+
+                System.out.println(profession.getId()+ " " + subject.getId());
+
+
+
+                preparedStatement.setLong(1, profession.getId());
+                preparedStatement.setLong(2, subject.getId());
+
+            }
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new Exception(e);
+        } finally {
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+        }
+    }
+
+    public void deleteSpecialitySubject(long specialitySubjectId) throws Exception {
+        PreparedStatement preparedStatement = null;
+
+        try {
+            preparedStatement = connection.prepareStatement("DELETE FROM SPECIALITY_SUBJECT WHERE SP_SB_ID=?");
+
+            preparedStatement.setInt(1, (int) specialitySubjectId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new Exception(e);
+        } finally {
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+        }
     }
 
 }

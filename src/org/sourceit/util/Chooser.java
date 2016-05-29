@@ -6,7 +6,7 @@ import org.sourceit.command.impl.profession.*;
 import org.sourceit.command.impl.subject.*;
 //import org.sourceit.command.impl.applicantresult.*;
 //import org.sourceit.command.impl.profession.*;
-//import org.sourceit.command.impl.specialitysubject.*;
+import org.sourceit.command.impl.specialitysubject.*;
 //import org.sourceit.command.impl.subject.*;
 
 import java.util.HashMap;
@@ -42,11 +42,11 @@ public enum Chooser {
         commandMap.put("editSubject", new EditSubjectCommand());
 
         // commands for speciality subjects
-//        commandMap.put("specSubjects", new SpecialitySubjectCommand());
-//        commandMap.put("addSpecSubject", new AddSpecialitySubjectCommand());
-//        commandMap.put("saveSpecSubject", new SaveSpecialitySubjectCommand());
-//        commandMap.put("deleteSpecSubject", new DeleteSpecialitySubjectCommand());
-//        commandMap.put("editSpecSubject", new EditSpecialitySubjectCommand());
+        commandMap.put("specSubjects", new SpecialitySubjectsCommand());
+        commandMap.put("addSpecSubject", new AddSpecialitySubjectsCommand());
+        commandMap.put("saveSpecSubject", new SaveSpecialitySubjectsCommand());
+        commandMap.put("deleteSpecSubject", new DeleteSpecialitySubjectsCommand());
+        commandMap.put("editSpecSubject", new EditSpecialitySubjectsCommand());
 
         // commands for applicant results
 //        commandMap.put("applicantResults", new ApplicantResultCommand());

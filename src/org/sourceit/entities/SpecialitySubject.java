@@ -2,7 +2,7 @@ package org.sourceit.entities;
 
 public class SpecialitySubject extends Entity {
 
-    private Profession profession;
+    public Profession profession;
     private Subject subject;
 
     public SpecialitySubject() {
