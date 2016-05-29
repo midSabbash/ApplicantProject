@@ -35,6 +35,7 @@ public enum SpecialitySubjectDBProvider {
             preparedStatement.setInt(1, (int) specialityId);
 
             ResultSet resultSet = preparedStatement.executeQuery();
+
             while (resultSet.next()) {
                 specialitySubject = new SpecialitySubject();
                 Profession profession = new Profession();
@@ -52,7 +53,6 @@ public enum SpecialitySubjectDBProvider {
                 preparedStatement.close();
             }
         }
-
         return specialitySubject;
     }
 
@@ -82,7 +82,6 @@ public enum SpecialitySubjectDBProvider {
         } catch (SQLException e) {
             throw new Exception(e);
         }
-
         return specialitySubjects;
     }
 
@@ -91,32 +90,19 @@ public enum SpecialitySubjectDBProvider {
 
         try {
             if (specialitySubject.getId() == -1) {
-
-                Profession profession = new Profession();
-                Subject subject = new Subject();
-
-                preparedStatement = connection.prepareStatement("INSERT INTO Speciality_Subject (profession_id, subject_id) VALUES (?, ?) ");
-
-                System.out.println(specialitySubject.getProfession().getId()+ " " + specialitySubject.getSubject().getId());
-
+                preparedStatement = connection.prepareStatement("INSERT INTO Speciality_Subject (profession_id," +
+                        " subject_id) VALUES (?, ?) ");
 
                 preparedStatement.setLong(1, specialitySubject.getProfession().getId());
                 preparedStatement.setLong(2, specialitySubject.getSubject().getId());
 
 
             } else {
-                preparedStatement = connection.prepareStatement("UPDATE Speciality_Subject SET profession_id=?, subject_id=? " +
-                        "WHERE SP_SB_ID=?");
+                preparedStatement = connection.prepareStatement("UPDATE Speciality_Subject SET profession_id=?," +
+                        " subject_id=? WHERE sp_sb_id=?");
 
-                Profession profession = new Profession();
-                Subject subject = new Subject();
-
-                System.out.println(profession.getId()+ " " + subject.getId());
-
-
-
-                preparedStatement.setLong(1, profession.getId());
-                preparedStatement.setLong(2, subject.getId());
+                preparedStatement.setLong(1, specialitySubject.getProfession().getId());
+                preparedStatement.setLong(2, specialitySubject.getSubject().getId());
 
             }
             preparedStatement.executeUpdate();

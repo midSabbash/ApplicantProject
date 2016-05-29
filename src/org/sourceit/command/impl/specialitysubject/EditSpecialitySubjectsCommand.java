@@ -22,6 +22,8 @@ public class EditSpecialitySubjectsCommand implements ICommand{
             return "pages/error.jsp";
         }
 
+        System.out.println("ad");
+
         request.setAttribute("title", "Edit specialitySubject");
         return "pages/specialitySubject/edit_specialitySubject.jsp";
     }

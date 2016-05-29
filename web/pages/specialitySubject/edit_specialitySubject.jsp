@@ -18,7 +18,9 @@
                     <input type="text" name="profession_id"
                            value="${specialitySubject.getProfessionId()}"/><br/>
                     <span>Subject ID</span>
-                    <input type="text" name="subject_id" value="${specialitySubject.getSubjectId()}"/><br/>
+                    <input type="text" name="subject_id"
+                           value="${specialitySubject.getSubjectId()}"/><br/>
+                    <input type="hidden" name="sp_sb_id" value="${specialitySubject.getId()}"/><br/>
                 </c:when>
                 <c:otherwise>
                     <span>Profession ID</span>

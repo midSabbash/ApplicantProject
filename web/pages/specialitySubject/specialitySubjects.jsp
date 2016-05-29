@@ -27,16 +27,16 @@
                         <c:out value="${specialitySubject.getId()}"/>
                     </td>
                     <td>
-                        <c:out value="${profession.getId()}"/>
+                        <c:out value="${specialitySubject.getProfession().getId()}"/>
                     </td>
                     <td>
-                        <c:out value="${subject.getId()}"/>
+                        <c:out value="${specialitySubject.getSubject().getId()}"/>
                     </td>
-
                     <td>
                         <a title="Edit ${specialitySubject.getId()} ${profession.getId()} ${subject.getId()} "
                            href="controller?command=editSpecSubject&id=${specialitySubject.getId()}">
-                            <i class="fa fa-pencil"></i></a>
+                            <i class="fa fa-pencil"></i>
+                        </a>
                         <a title="Delete ${specialitySubject.getId()} ${profession.getId()} ${subject.getId()} "
                            href="controller?command=deleteSpecSubject&id=${specialitySubject.getId()}">
                             <i class="fa fa-trash-o"></i>
