@@ -18,6 +18,7 @@ public class ApplicantResultCommand implements ICommand{
         List<ApplicantResult> applicantsResult = null;
 
         try {
+            System.out.println(provider.getApplicantsResult());
             applicantsResult = provider.getApplicantsResult();
         } catch (Exception e) {
             request.setAttribute("error", e);

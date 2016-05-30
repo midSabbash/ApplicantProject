@@ -9,7 +9,7 @@
 <%@include file="../include/template.jsp" %>
 <div class="container">
     <fieldset>
-        <legend>Applicants Results</legend>
+        <legend>Applicant Result</legend>
         <c:choose>
         <c:when test="${applicantsResult.size() == 0}">
             <p><c:out value="No applicants results yet"></c:out></p>
@@ -23,26 +23,26 @@
                 <th>Mark</th>
                 <th>Actions</th>
             </tr>
-            <c:forEach items="${applicantsResult}" var="applicantResult">
+            <c:forEach items="${applicantsResult}" var="applicantsResult">
                 <tr>
                     <td>
-                        <c:out value="${applicantResult.getId()}"/>
+                        <c:out value="${applicantsResult.getId()}"/>
                     </td>
                     <td>
-                        <c:out value="${applicantResult.getApplicantId()}"/>
+                        <c:out value="${applicantsResult.getApplicantId()}"/>
                     </td>
                     <td>
-                        <c:out value="${applicantResult.getSubjectId()}"/>
+                        <c:out value="${applicantsResult.getSubjectId()}"/>
                     </td>
                     <td>
-                        <c:out value="${applicantResult.getMark()}"/>
+                        <c:out value="${applicantsResult.getMark()}"/>
                     </td>
                     <td>
-                        <a title="Edit ${applicantResult.getApplicantId()} ${applicantResult.getSubjectId()} ${applicantResult.getMark()}"
-                           href="controller?command=editApplicantResult&id=${applicantResult.getId()}">
+                        <a title="Edit ${applicantsResult.getApplicantId()} ${applicantsResult.getSubjectId()} ${applicantsResult.getMark()}"
+                           href="controller?command=editApplicantResult&id=${applicantsResult.getId()}">
                             <i class="fa fa-pencil"></i></a>
-                        <a title="Delete ${applicantResult.getApplicantId()} ${applicantResult.getSubjectId()} ${applicantResult.getMark()}"
-                           href="controller?command=deleteApplicantResult&id=${applicantResult.getId()}">
+                        <a title="Delete ${applicantsResult.getApplicantId()} ${applicantsResult.getSubjectId()} ${applicantsResult.getMark()}"
+                           href="controller?command=deleteApplicantResult&id=${applicantsResult.getId()}">
                             <i class="fa fa-trash-o"></i>
                         </a>
                     </td>

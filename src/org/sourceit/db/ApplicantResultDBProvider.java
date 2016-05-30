@@ -1,9 +1,6 @@
 package org.sourceit.db;
 
-import org.sourceit.entities.Applicant;
 import org.sourceit.entities.ApplicantResult;
-import org.sourceit.entities.Profession;
-import org.sourceit.entities.Subject;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -58,24 +55,19 @@ public enum  ApplicantResultDBProvider {
 
         try {
             statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM SPECIALITY_SUBJECT JOIN (APPLICANT, SUBJECT)" +
-                    " ON applicant.APPLICANT_ID=applicant.APPLICANT_ID AND" +
-                    " SPECIALITY_SUBJECT.SUBJECT_ID=SUBJECT.SUBJECT_ID");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM APPLICANT_RESULT JOIN (APPLICANT, SUBJECT)" +
+                    " ON APPLICANT_RESULT.APPLICANT_ID=applicant.APPLICANT_ID AND" +
+                    " APPLICANT_RESULT.SUBJECT_ID=subject.SUBJECT_ID");
 
             ApplicantResult applicantResult = null;
-            Applicant applicant  = null;
-            Subject subject = null;
+
             while (resultSet.next()) {
 
                 applicantResult = new ApplicantResult();
-                applicant = new Applicant();
-                subject = new Subject();
 
-                applicant.setId(resultSet.getInt("APPLICANT_ID"));
-                subject.setId(resultSet.getInt("SUBJECT_ID"));
-                applicantResult.setId(resultSet.getInt("APPLICANT_RESULT_ID"));
-                applicantResult.setApplicantId(resultSet.getInt("APPLICANT_ID"));
-                applicantResult.setSubjectId(resultSet.getInt("SUBJECT_ID"));
+                applicantResult.setId(resultSet.getLong("APPLICANT_RESULT_ID"));
+                applicantResult.setApplicantId(resultSet.getLong("APPLICANT_ID"));
+                applicantResult.setSubjectId(resultSet.getLong("SUBJECT_ID"));
                 applicantResult.setMark(resultSet.getInt("MARK"));
                 applicantsResult.add(applicantResult);
             }
@@ -83,7 +75,6 @@ public enum  ApplicantResultDBProvider {
         } catch (SQLException e) {
             throw new Exception(e);
         }
-
         return applicantsResult;
     }
 
