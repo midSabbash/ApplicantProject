@@ -1,7 +1,6 @@
 package org.sourceit.db;
 
 import org.sourceit.entities.Profession;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +41,6 @@ public enum ProfessionDBProvider {
                 preparedStatement.close();
             }
         }
-
         return profession;
     }
 
@@ -65,7 +63,6 @@ public enum ProfessionDBProvider {
         } catch (SQLException e) {
             throw new Exception(e);
         }
-
         return professions;
     }
 
@@ -112,6 +109,5 @@ public enum ProfessionDBProvider {
             }
         }
     }
-
 }
 

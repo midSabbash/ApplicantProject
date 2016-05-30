@@ -2,7 +2,6 @@ package org.sourceit.command.impl.profession;
 
 import org.sourceit.command.ICommand;
 import org.sourceit.db.ProfessionDBProvider;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,7 +19,6 @@ public class DeleteProfessionCommand implements ICommand {
             request.setAttribute("error", e);
             return "pages/error.jsp";
         }
-
         return "controller?command=professions";
     }
 }

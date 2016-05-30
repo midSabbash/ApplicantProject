@@ -3,7 +3,6 @@ package org.sourceit.command.impl.profession;
 import org.sourceit.command.ICommand;
 import org.sourceit.db.ProfessionDBProvider;
 import org.sourceit.entities.Profession;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -23,7 +22,6 @@ public class EditProfessionCommand implements ICommand{
             request.setAttribute("error", e);
             return "pages/error.jsp";
         }
-
         request.setAttribute("title", "Edit profession");
         return "pages/profession/edit_profession.jsp";
     }

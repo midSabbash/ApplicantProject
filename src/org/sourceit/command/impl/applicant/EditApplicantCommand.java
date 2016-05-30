@@ -21,7 +21,6 @@ public class EditApplicantCommand implements ICommand {
             request.setAttribute("error", e);
             return "pages/error.jsp";
         }
-
         request.setAttribute("title", "Edit applicant");
         return "pages/applicant/edit_applicant.jsp";
     }

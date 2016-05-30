@@ -1,11 +1,8 @@
 package org.sourceit.db;
 
-
-
 import org.sourceit.entities.Profession;
 import org.sourceit.entities.SpecialitySubject;
 import org.sourceit.entities.Subject;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -132,5 +129,4 @@ public enum SpecialitySubjectDBProvider {
             }
         }
     }
-
 }

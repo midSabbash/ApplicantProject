@@ -1,7 +1,6 @@
 package org.sourceit.db;
 
 import org.sourceit.entities.ApplicantResult;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +43,6 @@ public enum  ApplicantResultDBProvider {
                 preparedStatement.close();
             }
         }
-
         return applicantResult;
     }
 
@@ -127,5 +125,4 @@ public enum  ApplicantResultDBProvider {
             }
         }
     }
-
 }

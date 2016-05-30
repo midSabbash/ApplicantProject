@@ -3,7 +3,6 @@ package org.sourceit.command.impl.subject;
 import org.sourceit.command.ICommand;
 import org.sourceit.db.SubjectDBProvider;
 import org.sourceit.entities.Subject;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,7 +26,6 @@ public class SaveSubjectCommand implements ICommand {
             request.setAttribute("error", e);
             return "pages/error.jsp";
         }
-
         return "controller?command=subjects";
     }
 }

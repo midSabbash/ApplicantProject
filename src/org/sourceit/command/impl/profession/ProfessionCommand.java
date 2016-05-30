@@ -3,7 +3,6 @@ package org.sourceit.command.impl.profession;
 import org.sourceit.command.ICommand;
 import org.sourceit.db.ProfessionDBProvider;
 import org.sourceit.entities.Profession;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -15,7 +14,7 @@ public class ProfessionCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
 
-        List<Profession> professions = null;
+        List<Profession> professions;
 
         try {
             professions = provider.getProfession();
@@ -23,9 +22,7 @@ public class ProfessionCommand implements ICommand {
             request.setAttribute("error", e);
             return "pages/error.jsp";
         }
-
         request.setAttribute("professions", professions);
-
         return "pages/profession/professions.jsp";
     }
 }

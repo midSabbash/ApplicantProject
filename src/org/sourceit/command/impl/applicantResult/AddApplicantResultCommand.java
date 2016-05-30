@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AddApplicantResultCommand implements ICommand{
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
-        request.setAttribute("title", "Add applicant");
+        request.setAttribute("title", "Add Applicant Result");
 
         return "pages/applicantResult/edit_applicantResult.jsp";
     }

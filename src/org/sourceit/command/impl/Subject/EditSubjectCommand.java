@@ -3,7 +3,6 @@ package org.sourceit.command.impl.subject;
 import org.sourceit.command.ICommand;
 import org.sourceit.db.SubjectDBProvider;
 import org.sourceit.entities.Subject;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,7 +12,6 @@ public class EditSubjectCommand implements ICommand {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
-
         try {
             Long subjectId = Long.parseLong(request.getParameter("id"));
             Subject subject = provider.getSubject(subjectId);
@@ -22,7 +20,6 @@ public class EditSubjectCommand implements ICommand {
             request.setAttribute("error", e);
             return "pages/error.jsp";
         }
-
         request.setAttribute("title", "Edit subject");
         return "pages/subject/edit_subject.jsp";
     }

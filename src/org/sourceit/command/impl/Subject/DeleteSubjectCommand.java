@@ -2,7 +2,6 @@ package org.sourceit.command.impl.subject;
 
 import org.sourceit.command.ICommand;
 import org.sourceit.db.SubjectDBProvider;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,7 +11,6 @@ public class DeleteSubjectCommand implements ICommand {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
-
         try {
             Long subjectId = Long.parseLong(request.getParameter("id"));
             provider.deleteSubject(subjectId);
@@ -20,7 +18,6 @@ public class DeleteSubjectCommand implements ICommand {
             request.setAttribute("error", e);
             return "pages/error.jsp";
         }
-
         return "controller?command=subjects";
     }
 }

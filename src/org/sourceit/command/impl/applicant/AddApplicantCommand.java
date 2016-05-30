@@ -1,7 +1,6 @@
 package org.sourceit.command.impl.applicant;
 
 import org.sourceit.command.ICommand;
-import org.sourceit.db.ApplicantDBProvider;
 import org.sourceit.db.ProfessionDBProvider;
 import org.sourceit.entities.Profession;
 
@@ -11,13 +10,12 @@ import java.util.List;
 
 public class AddApplicantCommand implements ICommand {
 
-    private ApplicantDBProvider provider = ApplicantDBProvider.INSTANCE;
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
         request.setAttribute("title", "Add applicant");
 
-        List<Profession> professions = null;
+        List<Profession> professions;
 
         try {
             professions = ProfessionDBProvider.INSTANCE.getProfession();
@@ -25,9 +23,7 @@ public class AddApplicantCommand implements ICommand {
             request.setAttribute("error", e);
             return "pages/error.jsp";
         }
-
         request.setAttribute("professions", professions);
-
         return "pages/applicant/edit_applicant.jsp";
     }
 }

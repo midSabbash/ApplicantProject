@@ -1,7 +1,5 @@
 package org.sourceit.entities;
 
-import java.util.Locale;
-
 public class Applicant extends Entity {
 
     private long professionId;

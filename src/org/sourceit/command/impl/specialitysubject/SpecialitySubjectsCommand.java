@@ -3,7 +3,6 @@ package org.sourceit.command.impl.specialitysubject;
 import org.sourceit.command.ICommand;
 import org.sourceit.db.SpecialitySubjectDBProvider;
 import org.sourceit.entities.SpecialitySubject;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -14,7 +13,7 @@ public class SpecialitySubjectsCommand implements ICommand {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
-        List<SpecialitySubject> specialitySubjects = null;
+        List<SpecialitySubject> specialitySubjects;
 
         try {
             specialitySubjects = provider.getSpecialitySubjects();
@@ -22,10 +21,7 @@ public class SpecialitySubjectsCommand implements ICommand {
             request.setAttribute("error", e);
             return "pages/error.jsp";
         }
-
         request.setAttribute("specialitySubjects", specialitySubjects);
-
         return "pages/specialitySubject/specialitySubjects.jsp";
     }
-
 }

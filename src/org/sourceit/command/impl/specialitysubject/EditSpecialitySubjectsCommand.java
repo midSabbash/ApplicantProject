@@ -3,7 +3,6 @@ package org.sourceit.command.impl.specialitysubject;
 import org.sourceit.command.ICommand;
 import org.sourceit.db.SpecialitySubjectDBProvider;
 import org.sourceit.entities.SpecialitySubject;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,9 +20,6 @@ public class EditSpecialitySubjectsCommand implements ICommand{
             request.setAttribute("error", e);
             return "pages/error.jsp";
         }
-
-        System.out.println("ad");
-
         request.setAttribute("title", "Edit specialitySubject");
         return "pages/specialitySubject/edit_specialitySubject.jsp";
     }

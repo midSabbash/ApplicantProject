@@ -15,7 +15,7 @@ public class ApplicantCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
 
-        List<Applicant> applicants = null;
+        List<Applicant> applicants;
 
         try {
             applicants = provider.getApplicants();
@@ -23,9 +23,7 @@ public class ApplicantCommand implements ICommand {
             request.setAttribute("error", e);
             return "pages/error.jsp";
         }
-
         request.setAttribute("applicants", applicants);
-
         return "pages/applicant/applicants.jsp";
     }
 }

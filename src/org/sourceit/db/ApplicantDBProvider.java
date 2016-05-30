@@ -1,21 +1,10 @@
 package org.sourceit.db;
 
 import org.sourceit.entities.*;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * You must finish implementation of this class.
- * Methods:
- * -- getApplicant
- * -- getApplicants
- * -- saveApplicant
- * -- deleteApplicant
- * <p>
- * TODO: And your task is add similar methods for subject, SpecialitySubjectDBProvider, ApplicantResult
- */
 public enum ApplicantDBProvider {
 
     INSTANCE;
@@ -55,13 +44,12 @@ public enum ApplicantDBProvider {
                 preparedStatement.close();
             }
         }
-
         return applicant;
     }
 
     public List<Applicant> getApplicants() throws Exception {
-
         Statement statement = null;
+
         List<Applicant> applicants = new ArrayList<>();
 
         try {

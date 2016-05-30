@@ -1,9 +1,6 @@
 package org.sourceit.db;
 
-import org.sourceit.entities.Applicant;
-import org.sourceit.entities.Profession;
 import org.sourceit.entities.Subject;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +41,6 @@ public enum SubjectDBProvider {
                 preparedStatement.close();
             }
         }
-
         return subject;
     }
 
@@ -68,7 +64,6 @@ public enum SubjectDBProvider {
         } catch (SQLException e) {
             throw new Exception(e);
         }
-
         return subjects;
     }
 
@@ -110,6 +105,4 @@ public enum SubjectDBProvider {
             }
         }
     }
-
-
 }

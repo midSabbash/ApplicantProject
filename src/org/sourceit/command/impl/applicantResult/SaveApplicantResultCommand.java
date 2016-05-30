@@ -28,7 +28,6 @@ public class SaveApplicantResultCommand implements ICommand {
             request.setAttribute("error", e);
             return "pages/error.jsp";
         }
-
         return "controller?command=applicantResults";
     }
 }

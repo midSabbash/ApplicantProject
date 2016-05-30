@@ -8,8 +8,8 @@
     .header {
         width: 100%;
         height: 10%;
-        border: 1px solid silver;
-        background-color: cornflowerblue;
+        border: 3px solid black;
+        background-color: #8bafed;
     }
 
     .header h2 {
@@ -18,28 +18,31 @@
 
     .menu {
         width: 20%;
-        border: 1px solid silver;
+        height: 89%;
+        border: 3px solid black;
         float: left;
         margin-top: 5px;
-        background-color: deeppink;
+        background-color: #e197da;
     }
 
     .menu ul {
-        list-style: none;
+        list-style: inside;
+        font-size: large;
     }
 
     a {
         text-decoration: blink;
-        color: white;
+        color: black;
     }
 
     .container {
         float: right;
         width: 79%;
         height: 89%;
-        border: 1px solid silver;
+        border: 3px solid black;
         margin-top: 5px;
         overflow-y: auto;
+        background-color: #f2f4f4;
     }
 
     .container a {
@@ -56,7 +59,7 @@
     }
 
     .add_button {
-        border: 1px solid silver;
+        border: 2px solid black;
         margin-left: 5px;
         margin-top: 5px;
         width: 25%;

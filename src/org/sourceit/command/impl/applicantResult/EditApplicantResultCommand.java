@@ -25,5 +25,4 @@ public class EditApplicantResultCommand implements ICommand{
         request.setAttribute("title", "Edit applicantResult");
         return "pages/applicantResult/edit_applicantResult.jsp";
     }
-
 }

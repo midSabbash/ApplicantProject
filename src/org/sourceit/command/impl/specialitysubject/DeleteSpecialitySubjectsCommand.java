@@ -2,7 +2,6 @@ package org.sourceit.command.impl.specialitysubject;
 
 import org.sourceit.command.ICommand;
 import org.sourceit.db.SpecialitySubjectDBProvider;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,8 +18,6 @@ public class DeleteSpecialitySubjectsCommand implements ICommand{
             request.setAttribute("error", e);
             return "pages/error.jsp";
         }
-
         return "controller?command=specSubjects";
     }
-
 }

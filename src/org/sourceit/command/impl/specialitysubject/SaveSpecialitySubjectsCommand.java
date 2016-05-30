@@ -5,7 +5,6 @@ import org.sourceit.db.SpecialitySubjectDBProvider;
 import org.sourceit.entities.Profession;
 import org.sourceit.entities.SpecialitySubject;
 import org.sourceit.entities.Subject;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -36,8 +35,6 @@ public class SaveSpecialitySubjectsCommand implements ICommand {
             request.setAttribute("error", e);
             return "pages/error.jsp";
         }
-
         return "controller?command=specSubjects";
     }
-
 }
