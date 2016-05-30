@@ -13,7 +13,7 @@
 
         <form method="post" action="controller?command=saveApplicantResult">
             <c:choose>
-                <c:when test="${applicant ne null}">
+                <c:when test="${applicantResult ne null}">
                     <span>Applicant ID</span>
                     <input type="text" name="APPLICANT_ID"
                            value="${applicantResult.getApplicantId()}"/><br/>
@@ -23,8 +23,7 @@
                     <span>Mark</span>
                     <input type="text" name="MARK"
                            value="${applicantResult.getMark()}"/><br/>
-                    <input type="hidden" name="APPLICANT_RESULT_ID"
-                           value="${applicantResult.getId()}"/><br/>
+                    <input type="hidden" name="APPLICANT_RESULT_ID" value="${applicantResult.getId()}"/><br/>
                 </c:when>
                 <c:otherwise>
                     <span>Applicant ID</span>

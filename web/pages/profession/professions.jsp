@@ -11,7 +11,7 @@
 <fieldset>
 <legend>Professions</legend>
 <c:choose>
-    <c:when test="${profession.size() == 0}">
+    <c:when test="${professions.size() == 0}">
         <p><c:out value="No profession yet"></c:out></p>
     </c:when>
     <c:otherwise>
@@ -49,6 +49,5 @@
         <a href="controller?command=addProfession">Add new profession</a>
     </div>
 </div>
-
 </body>
 </html>

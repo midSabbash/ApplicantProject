@@ -1,5 +1,5 @@
 <div class="header">
-    <h2><a class="header-link" href="/app">Main Dashboard</a></h2>
+    <h2><a class="header-link" href="/controller">Main Dashboard</a></h2>
 </div>
 <div class="menu">
     <ul>

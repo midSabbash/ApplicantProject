@@ -17,12 +17,11 @@
                     <span>Subject name</span>
                     <input type="text" name="subject_name"
                            value="${subject.getSubjectName()}"/><br/>
-
+                    <input type="hidden" name="subject_id" value="${subject.getId()}"/><br/>
                 </c:when>
                 <c:otherwise>
                     <span>Subject</span>
                     <input type="text" name="subject_name"/><br/>
-
                 </c:otherwise>
             </c:choose>
             <input type="submit" value="Save"/>

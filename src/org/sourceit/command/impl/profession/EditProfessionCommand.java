@@ -18,6 +18,7 @@ public class EditProfessionCommand implements ICommand{
             Long professionId = Long.parseLong(request.getParameter("id"));
             Profession profession = provider.getProfession(professionId);
             request.setAttribute("profession", profession);
+
         } catch (Exception e) {
             request.setAttribute("error", e);
             return "pages/error.jsp";

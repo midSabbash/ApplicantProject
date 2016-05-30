@@ -38,7 +38,7 @@
                     <c:forEach items="${professions}" var="profession">
                     <option value="${profession.getProfessionName()}">${profession.getProfessionName()}</option>
                     </c:forEach>
-                    </select><br/><br/>
+                    </select><br/>
                     <span>Entrance Year</span>
                     <input type="text" name="entrance_year"/><br/>
                 </c:otherwise>

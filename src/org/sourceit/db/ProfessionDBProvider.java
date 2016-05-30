@@ -26,13 +26,13 @@ public enum ProfessionDBProvider {
         PreparedStatement preparedStatement = null;
         Profession profession = null;
         try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM profesion WHERE profession_id=?");
+            preparedStatement = connection.prepareStatement("SELECT * FROM profession WHERE profession_id=?");
             preparedStatement.setInt(1, (int) professionId);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 profession = new Profession();
-                profession.setId(resultSet.getInt("profession_id"));
+                profession.setId(resultSet.getLong("profession_id"));
                 profession.setProfessionName(resultSet.getString("profession_name"));
             }
         } catch (SQLException e) {
@@ -77,11 +77,13 @@ public enum ProfessionDBProvider {
             preparedStatement = connection.prepareStatement("INSERT INTO profession (profession_name) VALUES (?) ");
 
             preparedStatement.setString(1, profession.getProfessionName());
+
             }else {
                 System.out.println("update profession");
                 preparedStatement = connection.prepareStatement("UPDATE profession SET profession_name=? WHERE profession_id=?");
+
                 preparedStatement.setString(1, profession.getProfessionName());
-                preparedStatement.setInt(2, (int) profession.getId());
+                preparedStatement.setLong(2, profession.getId());
             }
             preparedStatement.executeUpdate();
         } catch (SQLException e) {

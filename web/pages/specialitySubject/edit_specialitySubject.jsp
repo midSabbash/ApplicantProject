@@ -16,10 +16,10 @@
                 <c:when test="${specialitySubject ne null}">
                     <span>Profession ID</span>
                     <input type="text" name="profession_id"
-                           value="${specialitySubject.getProfession()}"/><br/>
+                           value="${specialitySubject.getProfession().getId()}"/><br/>
                     <span>Subject ID</span>
                     <input type="text" name="subject_id"
-                           value="${specialitySubject.getSubject()}"/><br/>
+                           value="${specialitySubject.getSubject().getId()}"/><br/>
                     <input type="hidden" name="sp_sb_id" value="${specialitySubject.getId()}"/><br/>
                 </c:when>
                 <c:otherwise>

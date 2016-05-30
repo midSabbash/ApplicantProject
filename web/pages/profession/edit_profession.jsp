@@ -17,12 +17,11 @@
                     <span>Profession name</span>
                     <input type="text" name="profession_name"
                            value="${profession.getProfessionName()}"/><br/>
-
+                    <input type="hidden" name="profession_id" value="${profession.getId()}"/><br/>
                 </c:when>
                 <c:otherwise>
                     <span>Profession</span>
                     <input type="text" name="profession_name"/><br/>
-
                 </c:otherwise>
             </c:choose>
             <input type="submit" value="Save"/>

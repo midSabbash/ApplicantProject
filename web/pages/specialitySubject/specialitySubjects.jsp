@@ -20,6 +20,7 @@
                 <th>ID</th>
                 <th>Profession ID</th>
                 <th>Subject ID</th>
+                <th>Actions</th>
             </tr>
             <c:forEach items="${specialitySubjects}" var="specialitySubject">
                 <tr>
