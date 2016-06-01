@@ -3,7 +3,8 @@ package org.sourceit.entities;
 public class SpecialitySubject extends Entity {
 
     public Profession profession;
-    private Subject subject;
+    public Subject subject;
+
 
     public SpecialitySubject() {
         this.id = -1;

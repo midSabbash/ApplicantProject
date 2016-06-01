@@ -41,7 +41,8 @@ public enum SpecialitySubjectDBProvider {
                 specialitySubject.setId(resultSet.getInt("sp_sb_id"));
                 profession.setId(resultSet.getInt("profession_id"));
                 subject.setId(resultSet.getInt("subject_id"));
-
+                specialitySubject.setProfession(profession);
+                specialitySubject.setSubject(subject);
             }
         } catch (SQLException e) {
             e.printStackTrace();

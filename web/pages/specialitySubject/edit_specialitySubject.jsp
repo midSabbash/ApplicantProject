@@ -10,7 +10,6 @@
 <div class="container">
     <fieldset>
         <legend><c:out value="${title}"/></legend>
-
         <form method="post" action="controller?command=saveSpecSubject">
             <c:choose>
                 <c:when test="${specialitySubject ne null}">
