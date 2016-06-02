@@ -23,9 +23,17 @@
                 </c:when>
                 <c:otherwise>
                     <span>Profession ID</span>
-                    <input type="text" name="profession_id"/><br/>
-                    <span>Subject ID</span>
-                    <input type="text" name="subject_id"/><br/>
+                    <select name="professions">
+                        <c:forEach items="${professions}" var="profession">
+                            <option value="${profession.getId()}">${profession.getProfessionName()}</option>
+                        </c:forEach>
+                    </select>
+                    <span style= "margin-left: 50px" >Subject ID</span>
+                    <select name="subjects">
+                        <c:forEach items="${subjects}" var="subject">
+                            <option value="${subject.getId()}">${subject.getSubjectName()}</option>
+                        </c:forEach>
+                    </select><br/>
                 </c:otherwise>
             </c:choose>
             <input type="submit" value="Save"/>

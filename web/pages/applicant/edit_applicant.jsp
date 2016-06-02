@@ -35,7 +35,7 @@
                     <span>Profession</span>
                     <select name="professions">
                     <c:forEach items="${professions}" var="profession">
-                    <option value="${profession.getProfessionName()}">${profession.getProfessionName()}</option>
+                    <option value="${profession.getId()}">${profession.getProfessionName()}</option>
                     </c:forEach>
                     </select><br/>
                     <span>Entrance Year</span>
