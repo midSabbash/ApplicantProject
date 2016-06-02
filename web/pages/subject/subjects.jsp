@@ -11,7 +11,7 @@
     <fieldset>
         <legend>Subjects</legend>
         <c:choose>
-        <c:when test="${subject.size() == 0}">
+        <c:when test="${subjects.size() == 0}">
             <p><c:out value="No profession yet"></c:out></p>
         </c:when>
         <c:otherwise>
