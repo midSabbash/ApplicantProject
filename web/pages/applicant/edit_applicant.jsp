@@ -33,8 +33,7 @@
                     <span>Last Name</span>
                     <input type="text" name="last_name"/><br/>
                     <span>Profession</span>
-                    <input type="text" name="profession_id"/>
-                    <select>
+                    <select name="professions">
                     <c:forEach items="${professions}" var="profession">
                     <option value="${profession.getProfessionName()}">${profession.getProfessionName()}</option>
                     </c:forEach>

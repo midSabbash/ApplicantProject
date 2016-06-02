@@ -1,113 +1,108 @@
 package org.sourceit.db;
 
-
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.sourceit.entities.Profession;
-
+import org.sourceit.entities.Applicant;
+import org.testng.Assert;
+import org.testng.annotations.*;
 import java.util.List;
 
 public class ApplicantDBProviderTest {
 
     private ApplicantDBProvider provider = ApplicantDBProvider.INSTANCE;
 
-    @Before
-     public void beforeDelete() {
-//        try {
-//            for (Profession profession : provider.getProfessions()) {
-//                provider.deleteProfession(profession.getId());
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+    @BeforeMethod
+    public void beforeDelete() {
+        try {
+            for (Applicant applicant : provider.getApplicants()) {
+                provider.deleteApplicant(applicant.getId());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Test
+    public void getApplicants() {
+        try {
+            List applicants = ApplicantDBProvider.INSTANCE.getApplicants();
+            Assert.assertTrue(applicants.size() == 0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void getProfessions() {
-//        try {
-//            List professions = provider.getProfessions();
-//            Assert.assertTrue(professions.size() == 0);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+    public void saveApplicant() {
+        try {
+            provider.saveApplicant(new Applicant(1L,"Profession","Ivan","Ivanov",2011));
+
+            Applicant applicant = null;
+            Long tempId = null;
+
+            for (Applicant temp : provider.getApplicants()) {
+                if (temp.getProfessionName().equalsIgnoreCase("Profession")) {
+                    temp = provider.getApplicant(temp.getId());
+                    tempId = temp.getId();
+                    System.out.println(tempId);
+                }
+            }
+            System.out.println(applicant.getId()+" "+tempId+" "+tempId);
+
+            Assert.assertTrue(applicant.getId() == tempId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void saveProfession() {
-//        try {
-//            provider.saveProfession(new Profession("Computer Science"));
-//
-//            Profession profession = null;
-//            Long tempId = null;
-//
-//            for (Profession temp : provider.getProfessions()) {
-//                if (temp.getProfessionName().equalsIgnoreCase("Computer Science")) {
-//                    tempId = temp.getId();
-//                    temp = provider.getProfession(temp.getId());
-//                }
-//            }
-//
-//            Assert.assertTrue(profession.getId() == tempId);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+    public void deleteApplicant() {
+        try {
+            provider.deleteApplicant(1L);
+
+            List applicants = provider.getApplicants();
+
+            Assert.assertTrue(applicants.size() == 0);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void deleteProfession() {
-//        try {
-//            provider.deleteProfession(1L);
-//
-//            List professions = provider.getProfessions();
-//
-//            Assert.assertTrue(professions.size() == 0);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+    public void getApplicantWithResult() {
+        try {
+            provider.saveApplicant(new Applicant(1L,"Computer Science","Ivan","Ivanov",1992));
+            provider.saveApplicant(new Applicant(1L,"Nuclear Physics","Petr","Petrov",1998));
+            provider.saveApplicant(new Applicant(1L,"Engineer","Vasya","Vasev",1991));
+            List applicants = provider.getApplicants();
+
+            Assert.assertTrue(applicants.size() == 3);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void getProfessionsWithResult() {
-//        try {
-//             2
-//            provider.saveProfession(new Profession("Computer Science"));
-//             3
-//            provider.saveProfession(new Profession("Nuclear Physics"));
-//             4
-//            provider.saveProfession(new Profession("System administration"));
-//            List professions = provider.getProfessions();
-//
-//            Assert.assertTrue(professions.size() == 3);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+    public void updateApplicant() {
+        try {
+            Applicant applicant = new Applicant(3L,"Computer Science","Ivan","Ivanov",1992);
+            provider.saveApplicant(applicant);
+            Assert.assertEquals(provider.getApplicant(3L).getFirstName(), "Ivan");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    @Test
-    public void updateProfession() {
-//        try {
-            // 2
-//            provider.saveProfession(new Profession("Computer Science"));
-            // 3
-//            Profession profession = new Profession("Nuclear Reactors");
-//            profession.setId(3L);
-//            provider.saveProfession(profession);
-//
-//            Assert.assertEquals(provider.getProfession(3L).getProfessionName(), "Nuclear Reactors");
-            // 4
-//            provider.saveProfession(new Profession("System administration"));
-//            List professions = provider.getProfessions();
-//
-//            Assert.assertTrue(professions.size() == 3);
-
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+    @AfterSuite
+    public void AfterDelete() {
+        try {
+            for (Applicant applicant : provider.getApplicants()) {
+                provider.deleteApplicant(applicant.getId());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-
 
 }

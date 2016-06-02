@@ -2,9 +2,7 @@ package org.sourceit.db;
 
 import org.sourceit.entities.Subject;
 import org.testng.Assert;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.List;
 
@@ -14,17 +12,6 @@ public class SubjectDBProviderTest {
 
     @BeforeMethod
     public void beforeDelete() {
-        try {
-            for (Subject subject : provider.getSubjects()) {
-                provider.deleteSubject(subject.getId());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @AfterSuite
-    public void AfterDelete() {
         try {
             for (Subject subject : provider.getSubjects()) {
                 provider.deleteSubject(subject.getId());
@@ -83,7 +70,6 @@ public class SubjectDBProviderTest {
     @Test
     public void getSubjectsWithResult() {
         try {
-
             provider.saveSubject(new Subject("Astronomy"));
 
             provider.saveSubject(new Subject("Math"));
@@ -102,20 +88,23 @@ public class SubjectDBProviderTest {
     @Test
     public void updateSubject() {
         try {
-
-            provider.saveSubject(new Subject("Astronomy"));
-
             Subject profession = new Subject("Math");
             profession.setId(3L);
             provider.saveSubject(profession);
 
             Assert.assertEquals(provider.getSubject(3L).getSubjectName(), "Math");
 
-            provider.saveSubject(new Subject("Physic"));
-            List professions = provider.getSubjects();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-            Assert.assertTrue(professions.size() == 3);
-
+    @AfterSuite
+    public void AfterDelete() {
+        try {
+            for (Subject subject : provider.getSubjects()) {
+                provider.deleteSubject(subject.getId());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

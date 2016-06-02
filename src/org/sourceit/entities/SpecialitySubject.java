@@ -5,6 +5,11 @@ public class SpecialitySubject extends Entity {
     public Profession profession;
     public Subject subject;
 
+    public SpecialitySubject(Profession profession, Subject subject) {
+        this();
+        this.profession = profession;
+        this.subject = subject;
+    }
 
     public SpecialitySubject() {
         this.id = -1;

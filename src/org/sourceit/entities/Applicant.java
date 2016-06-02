@@ -11,6 +11,16 @@ public class Applicant extends Entity {
     public Applicant() {
         this.id = -1;
     }
+
+    public Applicant(long professionId, String professionName, String lastName, String firstName, int entranceYear) {
+        this();
+        this.professionId = professionId;
+        this.professionName = professionName;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.entranceYear = entranceYear;
+    }
+
     public Long getProfessionId() {
         return professionId;
     }

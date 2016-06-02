@@ -22,18 +22,6 @@ public class ProfessionDBProviderTest {
 
     }
 
-    @AfterSuite
-    public void afterDelete() {
-        try {
-            for (Profession profession : provider.getProfession()) {
-                provider.deleteProfession(profession.getId());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
     @Test
     public void getProfession() {
         try {
@@ -101,23 +89,27 @@ public class ProfessionDBProviderTest {
     @Test
     public void updateProfession() {
         try {
-
-            provider.saveProfession(new Profession("Computer Science"));
-
             Profession profession = new Profession("Nuclear Reactors");
             profession.setId(3L);
             provider.saveProfession(profession);
 
             Assert.assertEquals(provider.getProfession(3L).getProfessionName(), "Nuclear Reactors");
 
-            provider.saveProfession(new Profession("System administration"));
-            List professions = provider.getProfession();
-
-            Assert.assertTrue(professions.size() == 3);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @AfterSuite
+    public void afterDelete() {
+        try {
+            for (Profession profession : provider.getProfession()) {
+                provider.deleteProfession(profession.getId());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
