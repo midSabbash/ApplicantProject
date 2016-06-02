@@ -68,6 +68,7 @@ public enum ApplicantDBProvider {
                 applicant.setLastName(resultSet.getString("last_name"));
                 applicant.setProfessionId(resultSet.getInt("profession_id"));
                 applicant.setId(resultSet.getInt("applicant_id"));
+                applicant.setProfessionName(resultSet.getString("profession_name"));
                 applicants.add(applicant);
             }
         } catch (SQLException e) {

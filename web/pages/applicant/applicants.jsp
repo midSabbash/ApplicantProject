@@ -36,7 +36,7 @@
                         <c:out value="${applicant.getLastName()}"/>
                     </td>
                     <td>
-                        <c:out value="${applicant.getProfessionId()}"/>
+                        <c:out value="${applicant.getProfessionName()}"/>
                     </td>
                     <td>
                         <c:out value="${applicant.getEntranceYear()}"/>

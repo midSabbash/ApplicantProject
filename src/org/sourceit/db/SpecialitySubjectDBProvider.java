@@ -61,7 +61,10 @@ public enum SpecialitySubjectDBProvider {
 
         try {
             statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM speciality_subject");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM speciality_subject JOIN (profession, subject)" +
+                    " ON speciality_subject.profession_id=profession.profession_id " +
+                    "AND speciality_subject.subject_id=subject.subject_id");
+
             SpecialitySubject specialitySubject = null;
 
             while (resultSet.next()) {
@@ -69,10 +72,11 @@ public enum SpecialitySubjectDBProvider {
                 Profession profession = new Profession();
                 Subject subject = new Subject();
 
-
                 specialitySubject.setId(resultSet.getInt("sp_sb_id"));
                 profession.setId(resultSet.getInt("profession_id"));
                 subject.setId(resultSet.getInt("subject_id"));
+                profession.setProfessionName(resultSet.getString("profession_name"));
+                subject.setSubjectName(resultSet.getString("subject_name"));
                 specialitySubject.setSubject(subject);
                 specialitySubject.setProfession(profession);
                 specialitySubjects.add(specialitySubject);

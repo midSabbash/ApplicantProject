@@ -3,6 +3,7 @@ package org.sourceit.entities;
 public class Applicant extends Entity {
 
     private long professionId;
+    private String professionName;
     private String lastName;
     private String firstName;
     private int entranceYear;
@@ -10,13 +11,20 @@ public class Applicant extends Entity {
     public Applicant() {
         this.id = -1;
     }
-
     public Long getProfessionId() {
         return professionId;
     }
 
     public void setProfessionId(long professionId) {
         this.professionId = professionId;
+    }
+
+    public void setProfessionName(String professionName) {
+        this.professionName = professionName;
+    }
+
+    public String getProfessionName() {
+        return professionName;
     }
 
     public String getLastName() {

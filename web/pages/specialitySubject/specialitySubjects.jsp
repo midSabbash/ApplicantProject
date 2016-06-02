@@ -9,7 +9,7 @@
 <%@include file="../include/template.jsp" %>
 <div class="container">
     <fieldset>
-        <legend>SpecialitySubject</legend>
+        <legend>Speciality Subject</legend>
         <c:choose>
         <c:when test="${specialitySubject.size() == 0}">
             <p><c:out value="No specialitySubject yet"></c:out></p>
@@ -18,8 +18,8 @@
         <table>
             <tr>
                 <th>ID</th>
-                <th>Profession ID</th>
-                <th>Subject ID</th>
+                <th>Profession Name</th>
+                <th>Subject Name</th>
                 <th>Actions</th>
             </tr>
             <c:forEach items="${specialitySubjects}" var="specialitySubject">
@@ -28,10 +28,10 @@
                         <c:out value="${specialitySubject.getId()}"/>
                     </td>
                     <td>
-                        <c:out value="${specialitySubject.getProfession().getId()}"/>
+                        <c:out value="${specialitySubject.getProfession().getProfessionName()}"/>
                     </td>
                     <td>
-                        <c:out value="${specialitySubject.getSubject().getId()}"/>
+                        <c:out value="${specialitySubject.getSubject().getSubjectName()}"/>
                     </td>
                     <td>
                         <a title="Edit ${specialitySubject.getId()} ${profession.getId()} ${subject.getId()} "

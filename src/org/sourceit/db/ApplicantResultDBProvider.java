@@ -67,6 +67,7 @@ public enum  ApplicantResultDBProvider {
                 applicantResult.setApplicantId(resultSet.getLong("APPLICANT_ID"));
                 applicantResult.setSubjectId(resultSet.getLong("SUBJECT_ID"));
                 applicantResult.setMark(resultSet.getInt("MARK"));
+                applicantResult.setSubjectName(resultSet.getString("subject_name"));
                 applicantsResult.add(applicantResult);
             }
 

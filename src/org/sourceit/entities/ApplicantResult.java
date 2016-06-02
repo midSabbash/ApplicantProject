@@ -4,6 +4,7 @@ public class ApplicantResult extends Entity {
 
     private long applicantId;
     private long subjectId;
+    private String subjectName;
     private int mark;
 
     public ApplicantResult() {
@@ -24,6 +25,14 @@ public class ApplicantResult extends Entity {
 
     public void setSubjectId(long subjectId) {
         this.subjectId = subjectId;
+    }
+
+    public String getSubjectName() {
+        return subjectName;
+    }
+
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
     }
 
     public int getMark() {

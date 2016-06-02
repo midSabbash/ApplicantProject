@@ -19,7 +19,7 @@
             <tr>
                 <th>ID</th>
                 <th>Applicant ID</th>
-                <th>Subject ID</th>
+                <th>Subject Name</th>
                 <th>Mark</th>
                 <th>Actions</th>
             </tr>
@@ -32,7 +32,7 @@
                         <c:out value="${applicantsResult.getApplicantId()}"/>
                     </td>
                     <td>
-                        <c:out value="${applicantsResult.getSubjectId()}"/>
+                        <c:out value="${applicantsResult.getSubjectName()}"/>
                     </td>
                     <td>
                         <c:out value="${applicantsResult.getMark()}"/>
