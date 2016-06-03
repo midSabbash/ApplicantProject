@@ -15,8 +15,8 @@ public class SaveApplicantResultCommand implements ICommand {
     public String execute(HttpServletRequest request, HttpServletResponse resp) {
         ApplicantResult applicantResult = new ApplicantResult();
 
-        applicantResult.setApplicantId(Long.parseLong(request.getParameter("APPLICANT_ID")));
-        applicantResult.setSubjectId(Long.parseLong(request.getParameter("SUBJECT_ID")));
+        applicantResult.setApplicantId(Long.parseLong(request.getParameter("applicants")));
+        applicantResult.setSubjectId(Long.parseLong(request.getParameter("subjects")));
         applicantResult.setMark(Integer.parseInt(request.getParameter("MARK")));
         if (request.getParameter("APPLICANT_RESULT_ID") != null) {
             applicantResult.setId(Long.parseLong(request.getParameter("APPLICANT_RESULT_ID")));

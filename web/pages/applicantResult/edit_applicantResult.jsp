@@ -27,10 +27,18 @@
                 </c:when>
                 <c:otherwise>
                     <span>Applicant ID</span>
-                    <input type="text" name="APPLICANT_ID"/><br/>
-                    <span>Subject ID</span>
-                    <input type="text" name="SUBJECT_ID"/><br/>
-                    <span>Mark</span>
+                    <select name="applicants">
+                        <c:forEach items="${applicants}" var="applicant">
+                            <option value="${applicant.getId()}">${applicant.getId()}</option>
+                        </c:forEach>
+                    </select>
+                    <span style= "margin-left: 50px">Subject Name </span>
+                    <select name="subjects">
+                        <c:forEach items="${subjects}" var="subject">
+                            <option value="${subject.getId()}">${subject.getSubjectName()}</option>
+                        </c:forEach>
+                    </select>
+                    <span style= "margin-left: 50px">Mark</span>
                     <input type="text" name="MARK"/>
                 </c:otherwise>
             </c:choose>

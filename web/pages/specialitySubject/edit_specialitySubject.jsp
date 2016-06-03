@@ -28,12 +28,12 @@
                             <option value="${profession.getId()}">${profession.getProfessionName()}</option>
                         </c:forEach>
                     </select>
-                    <span style= "margin-left: 50px" >Subject ID</span>
+                    <span style= "margin-left: 50px">Subject ID</span>
                     <select name="subjects">
                         <c:forEach items="${subjects}" var="subject">
                             <option value="${subject.getId()}">${subject.getSubjectName()}</option>
                         </c:forEach>
-                    </select><br/>
+                    </select>
                 </c:otherwise>
             </c:choose>
             <input type="submit" value="Save"/>
