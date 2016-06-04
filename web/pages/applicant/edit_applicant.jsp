@@ -20,10 +20,13 @@
                     <span>Last Name</span>
                     <input type="text" name="last_name" value="${applicant.getLastName()}"/><br/>
                     <span>Profession id</span>
-                    <input type="text" name="profession_id"
-                           value="${applicant.getProfessionId()}"/><br/>
+                    <select  name="professions">
+                        <c:forEach items="${professions}" var="profession">
+                            <option value="${profession.getId()}">${profession.getProfessionName()}</option>
+                        </c:forEach>
+                    </select><br/>
                     <span>Entrance Year</span>
-                    <input type="text" name="entrance_year"
+                    <input type="number" name="entrance_year"
                            value="${applicant.getEntranceYear()}"/>
                     <input type="hidden" name="applicant_id" value="${applicant.getId()}"/><br/>
                 </c:when>

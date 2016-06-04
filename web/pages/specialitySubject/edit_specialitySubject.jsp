@@ -14,11 +14,17 @@
             <c:choose>
                 <c:when test="${specialitySubject ne null}">
                     <span>Profession ID</span>
-                    <input type="text" name="profession_id"
-                           value="${specialitySubject.getProfession().getId()}"/><br/>
-                    <span>Subject ID</span>
-                    <input type="text" name="subject_id"
-                           value="${specialitySubject.getSubject().getId()}"/><br/>
+                    <select name="professions">
+                        <c:forEach items="${professions}" var="profession">
+                            <option value="${profession.getId()}">${profession.getProfessionName()}</option>
+                        </c:forEach>
+                    </select>
+                    <span style= "margin-left: 50px">Subject ID</span>
+                    <select name="subjects">
+                        <c:forEach items="${subjects}" var="subject">
+                            <option value="${subject.getId()}">${subject.getSubjectName()}</option>
+                        </c:forEach>
+                    </select>
                     <input type="hidden" name="sp_sb_id" value="${specialitySubject.getId()}"/><br/>
                 </c:when>
                 <c:otherwise>
