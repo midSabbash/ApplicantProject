@@ -71,15 +71,15 @@ public class ApplicantResultDBProviderTest {
     @Test
     public void getApplicantResultsWithResult() {
         try {
-            // 2
-            provider.saveApplicantResult(new ApplicantResult(1, 1, "Math", 135));
-            // 3
-            provider.saveApplicantResult(new ApplicantResult(2, 2, "Astronomy", 135));
-            // 4
-            provider.saveApplicantResult(new ApplicantResult(3, 3, "Physics", 135));
-            List professions = provider.getApplicantsResult();
 
-            Assert.assertTrue(professions.size() == 3);
+            provider.saveApplicantResult(new ApplicantResult(1, 1, "Math", 135));
+
+            provider.saveApplicantResult(new ApplicantResult(2, 2, "Astronomy", 144));
+
+            provider.saveApplicantResult(new ApplicantResult(3, 3, "Physics", 77));
+            List applicantsResult = provider.getApplicantsResult();
+
+            Assert.assertTrue(applicantsResult.size() == 3);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -90,6 +90,7 @@ public class ApplicantResultDBProviderTest {
     public void updateApplicantResults() {
         try {
             ApplicantResult applicantResult = new ApplicantResult(1, 1, "Math", 135);
+            applicantResult.setId(3L);
             provider.saveApplicantResult(applicantResult);
 
             Assert.assertEquals(provider.getApplicantResult(3L).getSubjectName(), "Math");

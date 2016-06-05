@@ -43,7 +43,7 @@ public class ApplicantDBProviderTest {
                 if (temp.getProfessionName().equalsIgnoreCase("Profession")) {
                     temp = provider.getApplicant(temp.getId());
                     tempId = temp.getId();
-                    System.out.println(tempId);
+                    temp = provider.getApplicant(temp.getId());
                 }
             }
             System.out.println(applicant.getId()+" "+tempId+" "+tempId);
@@ -87,6 +87,7 @@ public class ApplicantDBProviderTest {
     public void updateApplicant() {
         try {
             Applicant applicant = new Applicant(3L,"Computer Science","Ivan","Ivanov",1992);
+            applicant.setId(3L);
             provider.saveApplicant(applicant);
             Assert.assertEquals(provider.getApplicant(3L).getFirstName(), "Ivan");
         } catch (Exception e) {

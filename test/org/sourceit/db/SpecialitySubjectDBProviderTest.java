@@ -91,6 +91,7 @@ public class SpecialitySubjectDBProviderTest {
     public void updateSpecialitySubject() {
         try {
             SpecialitySubject specialitySubject = new SpecialitySubject(new Profession("Nuclear Reactors"),new Subject("Math"));
+            specialitySubject.setId(3L);
             provider.saveSpecialitySubject(specialitySubject);
 
             Assert.assertEquals(provider.getSpecialitySubject(3L).getProfession().getProfessionName(), "Nuclear Reactors");
@@ -109,7 +110,6 @@ public class SpecialitySubjectDBProviderTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
 }
